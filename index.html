@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kellie.AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Audiowide&display=swap" rel="stylesheet">
+    <style>
+        /* Mid-century modern inspired color palette and styling */
+        :root {
+            --primary: #ff4f00; /* International Orange */
+            --secondary: #5a5a5a; /* Medium gray instead of blue */
+            --accent: #f9c74f;
+            --light: #f2f2f2; /* Light gray instead of blue-tinted white */
+            --dark: #333333; /* Darker gray instead of blue-tinted dark */
+            --background: #fcfcfc;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Helvetica Neue', sans-serif;
+        }
+        
+        body {
+            background-color: var(--background);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--light);
+            padding: 1.5rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a.active {
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+        }
+        
+        .hero {
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-image {
+            background-color: #000; /* fallback color */
+            background-image: url('circuit-board-banner.jpg');
+            background-size: cover;
+            background-position: center top;
+            color: white;
+            text-align: center;
+            padding: 8rem 0;
+            position: relative;
+        }
+        
+        .hero-title {
+            font-family: 'Orbitron', 'Audiowide', sans-serif; /* Futuristic fonts */
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            color: white;
+            text-shadow: 0 0 10px rgba(255,79,0,0.8);
+            position: relative;
+        }
+        
+        .tagline-box {
+            display: inline-block;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px 25px;
+            border-radius: 4px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .tagline-box p {
+            color: white;
+            font-size: 1.2rem;
+            margin: 0;
+            opacity: 1;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+        
+        /* To add your circuit board image later:
+           1. Upload your image to your hosting
+           2. Add this CSS to the hero-image class:
+           background-image: url('path-to-your-image.jpg');
+        */
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.2rem;
+            color: var(--dark);
+        }
+        
+        /* Project cards grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .project-card {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .project-image {
+            height: 200px;
+            background-color: var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+        }
+        
+        .project-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .project-content p {
+            color: var(--dark);
+            opacity: 0.8;
+            margin-bottom: 1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #e64600;
+        }
+        
+        /* Blog section */
+        .blog-posts {
+            margin-bottom: 4rem;
+        }
+        
+        .blog-post {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .blog-post h3 {
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .blog-meta {
+            color: var(--dark);
+            opacity: 0.6;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        /* About section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+        
+        .about-image {
+            flex: 1;
+            max-width: 400px;
+            height: 400px;
+            background-color: var(--secondary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+        }
+        
+        .about-text {
+            flex: 2;
+        }
+        
+        .about-text h3 {
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: var(--light);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        
+        footer p {
+            opacity: 0.8;
+        }
+        
+        /* Page content visibility */
+        .page-content {
+            display: none;
+        }
+        
+        .page-content.active {
+            display: block;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                max-width: 100%;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Kellie.AI</div>
+                <ul class="nav-links">
+                    <li><a href="#" class="nav-link active" data-page="projects">Projects</a></li>
+                    <li><a href="#" class="nav-link" data-page="blog">Blog</a></li>
+                    <li><a href="#" class="nav-link" data-page="about">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <!-- This is where you'll place your circuit board hero image background -->
+        <div class="hero-image">
+            <div class="container">
+                <h1 class="hero-title">WELCOME TO MY AI PROJECT SHOWCASE</h1>
+                <div class="tagline-box">
+                    <p>Exploring artificial intelligence through practical projects and experiments</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        <!-- Projects Page -->
+        <div id="projects" class="page-content active">
+            <h2 class="section-title">My Projects</h2>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-image" style="background-color: #5a5a5a;">
+                        <i>🤖</i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Chatbot Assistant</h3>
+                        <p>A Streamlit-powered chatbot that can answer questions and provide assistance.</p>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-image" style="background-color: #5a5a5a;">
+                        <i>📊</i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Data Visualization Tool</h3>
+                        <p>Interactive data visualization app created with Streamlit and Python.</p>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-image" style="background-color: #5a5a5a;">
+                        <i>🔍</i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Image Recognition App</h3>
+                        <p>AI-powered image recognition application built with Streamlit.</p>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+                
+                <!-- Add more project cards as needed -->
+            </div>
+        </div>
+
+        <!-- Blog Page -->
+        <div id="blog" class="page-content">
+            <h2 class="section-title">My Blog</h2>
+            <div class="blog-posts">
+                <!-- Blog Post 1 -->
+                <div class="blog-post">
+                    <h3>Getting Started with Streamlit for AI Projects</h3>
+                    <div class="blog-meta">Published on March 1, 2025</div>
+                    <p>In this blog post, I explore how to use Streamlit to quickly build interactive AI applications without extensive web development knowledge.</p>
+                    <p>Streamlit has become my go-to framework for deploying machine learning models and creating interactive data applications. The simplicity of the API makes it perfect for data scientists and ML engineers who want to showcase their work without getting bogged down in frontend development.</p>
+                    <a href="#" class="btn">Read More</a>
+                </div>
+                
+                <!-- Blog Post 2 -->
+                <div class="blog-post">
+                    <h3>The Journey of Building My First AI Chatbot</h3>
+                    <div class="blog-meta">Published on February 15, 2025</div>
+                    <p>A reflection on the challenges and learnings from creating my first AI-powered conversational agent using modern language models.</p>
+                    <p>Building a chatbot taught me not just about the technical aspects of natural language processing, but also about designing conversational flows that feel natural and helpful to users.</p>
+                    <a href="#" class="btn">Read More</a>
+                </div>
+                
+                <!-- Add more blog posts as needed -->
+            </div>
+        </div>
+
+        <!-- About Page -->
+        <div id="about" class="page-content">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-image" style="background-color: #5a5a5a;">
+                    <i>👩‍💻</i>
+                </div>
+                <div class="about-text">
+                    <h3>Hi, I'm Kellie!</h3>
+                    <p>I'm an AI enthusiast and developer with a passion for creating practical applications powered by artificial intelligence. My journey in tech began with a curiosity about how machines could learn and adapt, which led me to explore various AI frameworks and tools.</p>
+                    <p>Currently, I focus on building accessible AI applications using Streamlit, Python, and various machine learning libraries. I believe in the power of AI to solve real-world problems and am constantly working on new projects to expand my skills.</p>
+                    <p>When I'm not coding, you can find me reading about the latest AI research, attending tech meetups, or enjoying the outdoors with my dog.</p>
+                    <p>Feel free to reach out if you want to collaborate on a project or just chat about AI!</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Kellie.AI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple navigation script
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const pageContents = document.querySelectorAll('.page-content');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all links and pages
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    pageContents.forEach(p => p.classList.remove('active'));
+                    
+                    // Add active class to clicked link
+                    this.classList.add('active');
+                    
+                    // Show corresponding page
+                    const pageName = this.getAttribute('data-page');
+                    document.getElementById(pageName).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
