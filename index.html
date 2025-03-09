@@ -265,6 +265,18 @@
                 display: none;
             }
         }
+
+        .project-image a {
+            display: block;
+            height: 100%;
+            cursor: pointer; /* Changes cursor to a hand when hovering over the image */
+        }
+        
+        .project-image img:hover {
+            opacity: 0.9; /* Slightly dims the image when hovering over it */
+            transition: opacity 0.3s ease; /* Makes the dimming effect smooth */
+        }
+     
     </style>
 </head>
 <body>
@@ -300,12 +312,14 @@
                 <!-- Project 1 -->
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="bar-fight-icon.jpg" alt="Bar Fight" class="project-img">
+                        <a href="https://youractualprojecturl.com" target="_blank">
+                            <img src="bar-fight-icon.jpg" alt="Bar Fight" class="project-img">
+                        </a>
                     </div>
                     <div class="project-content">
                         <h3>Bar Fight</h3>
                         <p>A chatbot game that takes place in a university bar, where everyone fights with what they know.</p>
-                        <a href="#" class="btn">View Project</a>
+                        <a href="https://youractualprojecturl.com" class="btn">View Project</a>
                     </div>
                 </div>
                 
