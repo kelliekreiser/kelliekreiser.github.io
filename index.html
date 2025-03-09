@@ -159,12 +159,15 @@
         
         .project-image {
             height: 200px;
-            background-color: var(--secondary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 3rem;
+            background-color: var(--secondary); /* Fallback color if image fails to load */
+            overflow: hidden; /* This prevents images from overflowing */
+        }
+        
+        .project-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* This makes images cover the area without stretching */
+            display: block;
         }
         
         .project-content {
@@ -293,46 +296,79 @@
         <div id="projects" class="page-content active">
             <h2 class="section-title">My Projects</h2>
             <div class="projects-grid">
+                
                 <!-- Project 1 -->
                 <div class="project-card">
-                    <div class="project-image" style="background-color: #5a5a5a;">
-                        <i>🤖</i>
+                    <div class="project-image">
+                        <img src="bar-fight.jpg" alt="Bar Fight" class="project-img">
                     </div>
                     <div class="project-content">
-                        <h3>Chatbot Assistant</h3>
-                        <p>A Streamlit-powered chatbot that can answer questions and provide assistance.</p>
+                        <h3>Bar Fight</h3>
+                        <p>A chatbot game that takes place in a university bar, where everyone fights with what they know.</p>
                         <a href="#" class="btn">View Project</a>
                     </div>
                 </div>
                 
                 <!-- Project 2 -->
                 <div class="project-card">
-                    <div class="project-image" style="background-color: #5a5a5a;">
-                        <i>📊</i>
+                    <div class="project-image">
+                        <img src="data-viz-tool.jpg" alt="The Yes Man" class="project-img">
                     </div>
                     <div class="project-content">
                         <h3>Data Visualization Tool</h3>
-                        <p>Interactive data visualization app created with Streamlit and Python.</p>
+                        <p>A brainstorming bot that combines overly agreeable AI with improv comedy.</p>
                         <a href="#" class="btn">View Project</a>
                     </div>
                 </div>
                 
                 <!-- Project 3 -->
                 <div class="project-card">
-                    <div class="project-image" style="background-color: #5a5a5a;">
-                        <i>🔍</i>
+                    <div class="project-image">
+                        <img src="image-recognition.jpg" alt="Santa's Juke Joint" class="project-img">
                     </div>
                     <div class="project-content">
                         <h3>Image Recognition App</h3>
-                        <p>AI-powered image recognition application built with Streamlit.</p>
+                        <p>A text-based adventure game set in a North Pole dive bar.</p>
                         <a href="#" class="btn">View Project</a>
                     </div>
                 </div>
                 
-                <!-- Add more project cards as needed -->
-            </div>
-        </div>
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="project-four.jpg" alt="Susan From HR" class="project-img">
+                    </div>
+                    <div class="project-content">
+                        <h3>Project Four Title</h3>
+                        <p>A bot to practice interviewing with a job screener.</p>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="project-five.jpg" alt="Coming Soon!" class="project-img">
+                    </div>
+                    <div class="project-content">
+                        <h3>Project Five Title</h3>
+                        <p>Stay tuned!</p>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
 
+                <!-- Project 6 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="project-four.jpg" alt="Coming Soon" class="project-img">
+                    </div>
+                    <div class="project-content">
+                        <h3>Project Four Title</h3>
+                        <p>Stay tuned!</p>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+        
         <!-- About Page -->
         <div id="about" class="page-content">
             <h2 class="section-title">About Me</h2>
@@ -342,9 +378,9 @@
                 </div>
                 <div class="about-text">
                     <h3>Hi, I'm Kellie!</h3>
-                    <p>I'm an AI enthusiast and developer with a passion for creating practical applications powered by artificial intelligence. My journey in tech began with a curiosity about how machines could learn and adapt, which led me to explore various AI frameworks and tools.</p>
-                    <p>Currently, I focus on building accessible AI applications using Streamlit, Python, and various machine learning libraries. I believe in the power of AI to solve real-world problems and am constantly working on new projects to expand my skills.</p>
-                    <p>When I'm not coding, you can find me reading about the latest AI research, attending tech meetups, or enjoying the outdoors with my dog.</p>
+                    <p>I'm an AI enthusiast with a passion for developing creative applications powered by artificial intelligence. My journey began with a curiosity about what superpowers AI could provide.</p>
+                    <p>Currently, I'm most interested in exploring how working artists use AI tools in their creative work. I love speaking with people who are pushing the boundaries of what the layperson can do with artificial intelligence. Does this describe you? Let's talk!</p>
+                    <p>When I'm not tinkering, you can find me at the pottery wheel or trying to keep the cats from wreaking havoc.</p>
                     <p>Feel free to reach out if you want to collaborate on a project or just chat about AI!</p>
                 </div>
             </div>
