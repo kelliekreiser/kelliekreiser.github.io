@@ -417,6 +417,8 @@
                     <p>Currently, I'm most interested in exploring how working artists use AI tools in their creative work. I love speaking with people who are pushing the boundaries of what the layperson can do with artificial intelligence. Does this describe you? Let's talk!</p>
                     <p>When I'm not tinkering, you can find me at the pottery wheel or trying to keep the cats from wreaking havoc.</p>
                     <p>Feel free to reach out if you want to collaborate on a project or just chat about AI!</p>
+
+                    <a href="#" class="btn" id="contact-btn">Contact Me</a>
                 </div>
             </div>
         </div>
@@ -452,5 +454,16 @@
             });
         });
     </script>
+    <script>
+        // Email obfuscation
+        document.getElementById('contact-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            const user = 'your.username'; // Change this to your email username
+            const domain = 'kelliekreiser.ai@gmail.com';   // Change this to your email domain
+            window.location.href = 'mailto:' + user + '@' + domain;
+        });
+    </script>
+
+       
 </body>
 </html>
