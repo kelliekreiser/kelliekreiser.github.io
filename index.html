@@ -260,19 +260,66 @@
         }
         
         /* Responsive */
-        @media (max-width: 768px) {
-            .about-content {
-                flex-direction: column;
-            }
-            
-            .about-image {
-                max-width: 100%;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-        }
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+    }
+    
+    .about-image {
+        max-width: 100%;
+    }
+    
+    /* These styles will be handled by the hamburger menu styles below */
+    /* .nav-links {
+        display: none;
+    } */
+}
+
+/* Hamburger menu styles */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: var(--primary);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+    
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--light);
+        flex-direction: column;
+        padding: 1rem 0;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+    
+    .nav-links.show {
+        display: flex;
+    }
+    
+    .nav-links li {
+        margin: 0.5rem 0;
+        text-align: center;
+    }
+}
 
         .project-image a {
             display: block;
@@ -294,12 +341,18 @@
     <header>
         <div class="container">
             <nav>
-                <div class="logo">Kellie.AI</div>
-                <ul class="nav-links">
-                    <li><a href="#" class="nav-link active" data-page="projects">Projects</a></li>
-                    <li><a href="#" class="nav-link" data-page="about">About</a></li>
-                </ul>
-            </nav>
+    <div class="logo">Kellie.AI</div>
+                <!-- Add this hamburger menu div -->
+    <div class="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <ul class="nav-links">
+        <li><a href="#" class="nav-link active" data-page="projects">Projects</a></li>
+        <li><a href="#" class="nav-link" data-page="about">About</a></li>
+    </ul>
+</nav>
         </div>
     </header>
 
@@ -512,6 +565,25 @@
             window.open('mailto:' + user + '@' + domain, '_blank');
         });
     </script>
-       
+ <script>
+    // Mobile menu toggle
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', function() {
+            navLinks.classList.toggle('show');
+        });
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    navLinks.classList.remove('show');
+                }
+            });
+        });
+    });
+</script>      
 </body>
 </html>
